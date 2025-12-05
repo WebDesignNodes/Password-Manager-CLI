@@ -1,0 +1,13 @@
+
+BasedOnStyle: LLVM
+
+IndentWidth: 4
+ContinuationIndentWidth: 4
+
+BreakBeforeBraces: Attach
+
+KeepEmptyLinesAtTheStartOfBlocks: true 
+
+MaxEmptyLinesToKeep: 1 
+
+AllowAllParametersOfDeclarationOnNextLine: false

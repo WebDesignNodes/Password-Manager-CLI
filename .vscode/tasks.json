@@ -1,0 +1,76 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++.exe",
+            "command": "C:\\MinGW\\bin\\g++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "Tarea generada por el depurador."
+        },
+        {
+            "type": "cmake",
+            "label": "CMake: compilación",
+            "command": "build",
+            "targets": [
+                "[N/A - Seleccionar kit]"
+            ],
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "Tarea compilación plantilla de CMake"
+        },
+        {
+            "label": "Build Project",
+            "type": "process",
+            "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "-std=c++17",
+                "-fno-use-linker-plugin",
+                "-I",
+                "${workspaceFolder}/include",
+                "${workspaceFolder}/src/main.cpp",
+                "${workspaceFolder}/src/FileManager.cpp",
+                "${workspaceFolder}/src/Input_Handler.cpp",
+                "${workspaceFolder}/src/Menu.cpp",
+                "${workspaceFolder}/src/Utils.cpp",
+                "-o",
+                "${workspaceFolder}/bin/main.exe"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build",
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "detail": "Compila todos los archivos de src/ y coloca el ejecutable en bin/"
+        },
+        {
+            "label": "Compilar",
+            "dependsOn": [
+                "Build Project",
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "detail": "Ejecuta la tarea de compilación modular."
+        }
+    ]
+}
