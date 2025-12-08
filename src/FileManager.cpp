@@ -2,6 +2,7 @@
 // * Libraries Required
 
 #include <cstdlib>
+#include <fstream>
 #include <filesystem>
 #include <iostream>
 #include <string>
@@ -45,7 +46,7 @@ vector<string> FileManager::get_Profiles() {
 
     // * Getting Directory Path
 
-    string path_str = get_Secure_Base_Path();
+    string path_str = FileManager::get_Secure_Base_Path();
 
     // * Validating Directory Path
 
@@ -82,5 +83,47 @@ vector<string> FileManager::get_Profiles() {
     }
 
     return profiles;
+
+}
+
+bool FileManager::create_New_Profile(string profile_name) {
+
+    // * Getting Directory Path
+
+    string path_str = FileManager::get_Secure_Base_Path();
+
+    // * Validating Directory Path
+
+    if (path_str.empty()) {
+
+        return false;
+
+    }
+
+    filesystem::path full_path(path_str + "/" + profile_name + ".dat");
+    
+    cout<<full_path.string();
+
+    // * Creating Profile File
+
+    try {
+        
+        // * Creating and Opening File 
+
+        std::ofstream outfile(full_path);
+
+        outfile.close();
+
+        return true;
+
+    } catch(const filesystem::filesystem_error & e) {
+
+        std::cerr << e.what() << '\n';
+
+        return false;
+
+    }
+    
+    return false;
 
 }

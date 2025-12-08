@@ -11,6 +11,7 @@ class FileManager {
 
   public:
     static vector<string> get_Profiles();
+    static bool create_New_Profile(string profile_name);
 
   private:
     static string get_Secure_Base_Path();

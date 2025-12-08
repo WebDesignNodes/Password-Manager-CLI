@@ -6,6 +6,7 @@
 
 // * Class Required
 
+#include "FileManager.hpp"
 #include "Input_Handler.hpp"
 #include "Menu.hpp"
 
@@ -43,6 +44,10 @@ void Menu::display_New_Profile_Form() {
     cout << "Escribe el nombre del perfil: ";
 
     profile_name = Input_Handler::get_User_Text_Input();
+
+    // * Creating Profile
+
+    FileManager::create_New_Profile(profile_name);
 
     string profile_password;
 
